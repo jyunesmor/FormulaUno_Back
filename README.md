@@ -1,4 +1,4 @@
-![F1](img/F1-Logo-2018.png)
+![F1](static/img/F1-Logo-2018.png)
 <br />
 
 ![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat&logo=html5)
