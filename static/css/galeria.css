@@ -1,0 +1,48 @@
+main {
+	background-color: white;
+}
+
+body main .galery-cont {
+	width: 90%;
+	margin: 30px auto;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	row-gap: 20px;
+}
+
+body main .galery-cont .galery-card {
+	width: 350px;
+	display: flex;
+	justify-content: center;
+}
+
+body main .galery-cont .galery-card img {
+	width: 350px;
+	border-radius: 50% 20% / 10% 40%;
+	box-shadow: 5px 5px 8px black;
+}
+
+body #volver img {
+	position: fixed;
+	bottom: 180px;
+	right: 20px;
+	width: 90px;
+	border-radius: 50%;
+	display: none;
+}
+
+#volver:hover {
+	cursor: pointer;
+}
+
+@media (300px <= width < 829px) {
+	body main .galery-cont .galery-card img {
+		width: 250px;
+	}
+
+	body #volver img {
+		right: 25px;
+		width: 60px;
+	}
+}

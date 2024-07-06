@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Formula 1</title>
+		<link
+			rel="shortcut icon"
+			href="../static/public/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="../static/css/estilos.css" />
+		<link rel="stylesheet" href="../static/css/responsividad.css" />
+		<link rel="stylesheet" href="../static/css/contacto.css" />
+		<script
+			src="https://kit.fontawesome.com/d7e5186ff3.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+
+	<body>
+		<header>
+			<section class="hero">
+				<a href="/"
+					><img
+						class="hero-img"
+						src="../static/img/LogoFormula1.png"
+						alt="logo"
+				/></a>
+				<h1 class="hero-text">Contactanos</h1>
+			</section>
+		</header>
+		<nav class="menu-bar">
+			<ul class="menu-nabvar">
+				<li>
+					<a href="equiposypilotos">Equipos</a>
+				</li>
+				<li>
+					<a href="calendario">Cronograma</a>
+				</li>
+				<li>
+					<a href="estadisticas">Estadisticas</a>
+				</li>
+				<li>
+					<a href="galeria">Galeria</a>
+				</li>
+				<li>
+					<a href="contacto">Contacto</a>
+				</li>
+				<li>
+					<a href="administrador">Administrador</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<section class="form_cont">
+				<div class="form_text">
+					<h1>Formulario de suscripción</h1>
+					<h5>
+						Quiero recibir la información más reciente sobre la F1 por e-mail,
+						incluyendo noticias relevantes, encuestas, ofertas, promociones y
+						competiciones exclusivas.
+					</h5>
+				</div>
+				<form id="form_admin" name="contacto" enctype="multipart/form-data">
+					<div id="input_group" class="input_group">
+						<div id="input_nombre" class="input">
+							<label for="nombre">Nombre:</label>
+							<input type="text" id="nombre" name="nombre" />
+							<p class="error_text">
+								Ingrese solamente letras y hasta tres palabras
+							</p>
+						</div>
+						<div id="input_apellido" class="input">
+							<label for="apellido">Apellido:</label>
+							<input type="text" id="apellido" name="apellido" />
+							<p class="error_text">
+								Ingrese solamente letras y hasta tres palabras
+							</p>
+						</div>
+						<div id="input_sexo" class="input_sexo">
+							<label for="sexo">Sexo:</label>
+							<div class="input_sexo_group">
+								<div class="input_sex">
+									<label for="sexo">Femenino</label>
+									<input type="radio" name="sexo" value="Femenino" />
+								</div>
+								<div class="input_sex">
+									<label for="sexo">Masculino</label>
+									<input type="radio" name="sexo" value="Masculino" />
+								</div>
+								<div class="input_sex">
+									<label for="sexo">Sin genero</label>
+									<input type="radio" name="sexo" value="Sin_genero" />
+								</div>
+							</div>
+						</div>
+						<div id="input_fecha_nacimiento" class="input">
+							<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+							<input
+								type="date"
+								id="fecha_nacimiento"
+								name="fecha_nacimiento"
+							/>
+							<p class="error_text">
+								Ingrese solamente numeros con el siguiente formato año con
+								cuatro aaaa/mm/dd-
+							</p>
+						</div>
+						<div id="input_pais" class="input">
+							<label for="pais">País de residencia:</label>
+							<select id="pais" class="select_input">
+								<option selected readonly>Seleccione su pais</option>
+								<option value="Argentina">Argentina</option>
+								<option value="Bolivia">Bolivia</option>
+								<option value="Brasil">Brasil</option>
+								<option value="Chile">Chile</option>
+								<option value="Colombia">Colombia</option>
+								<option value="Ecuador">Ecuador</option>
+								<option value="Paraguay">Paraguay</option>
+								<option value="Peru">Peru</option>
+								<option value="Uruguay">Uruguay</option>
+								<option value="Otro">Otro</option>
+							</select>
+						</div>
+						<div id="input_email" class="input">
+							<label for="email">Email:</label>
+							<input
+								type="text"
+								id="email"
+								name="email"
+								title="Ingrese el mail deacuerdo al siguiente ej.: formula-uno@formula-uno.com"
+							/>
+							<p class="error_text">
+								Ingrese solamente letras, numeros y los siguientes simbolos ($ -
+								_ . \)
+							</p>
+						</div>
+						<input type="submit" id="b1" name="btn" value="Enviar" />
+					</div>
+				</form>
+			</section>
+		</main>
+		<footer>
+			<div class="title-f1">
+				<h3>Formula 1</h3>
+			</div>
+			<div class="redes">
+				<div class="redes-boot">
+					<ul>
+						<li>
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-square-facebook fa-2xl"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-instagram fa-2xl"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-x-twitter fa-2xl"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-youtube fa-2xl"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+
+		<script rel="stylesheet" src="../static/JS/contacto.js" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+/* Index Esquema */
+
+body header {
+	display: grid;
+	grid-template: repeat(2, auto) / 100%;
+	grid-template-areas:
+		"hero"
+		"menu-navbar";
+	row-gap: 35px;
+}
+
+body header .hero {
+	display: grid;
+	grid-template: repeat(2, auto) / 100%;
+	grid-template-areas:
+		"h_img"
+		"h_text";
+}
+
+body header .hero .hero-text {
+	grid-area: h_text;
+}
+
+body header .hero .hero-img {
+	grid-area: h_img;
+}
+
+body header .menu-bar .menu-nabvar {
+	grid-area: menu-navbar;
+}
+
+body main .container-news {
+	display: grid;
+	grid-template: repeat(2, auto) / 100%;
+	grid-template-areas:
+		"news"
+		"stadistics";
+}
+
+body main .container-news .news {
+	grid-area: news;
+}
+
+body main .container-news .stadistics {
+	grid-area: stadistics;
+	display: grid;
+	grid-template: repeat(2, auto) / 100%;
+	grid-template-areas:
+		"pilotos"
+		"equipos";
+}
+
+body main .container-news .stadistics .pos_Pilotos {
+	grid-area: pilotos;
+}
+
+body main .container-news .stadistics .pos_Equipos {
+	grid-area: equipos;
+}
+
+body footer {
+	display: grid;
+	grid-template: repeat(2, auto) / 100%;
+	grid-template-areas:
+		"title-f1"
+		"redes";
+	row-gap: 15px;
+}
+
+body footer .title-f1 {
+	grid-area: title-f1;
+}
+
+body footer .redes {
+	grid-area: redes;
+}
+
+/* Responsividad  */
+
+@media (830px <= width < 915px) {
+	body footer {
+		grid-template-columns: 50% 50%;
+		grid-template-areas: "title-f1 redes";
+	}
+}
+
+@media (916px <= width < 1023px) {
+	body footer {
+		grid-template-columns: 50% 50%;
+		grid-template-areas: "title-f1 redes";
+	}
+}
+
+@media (1024px <= width < 1440px) {
+	body header .hero {
+		grid-template-columns: 40% 60%;
+		grid-template-areas: "h_img h_text";
+	}
+
+	header .hero .hero-text {
+		font-size: 3rem;
+	}
+
+	body header .menu-bar .menu-nabvar {
+		flex-direction: row;
+	}
+
+	body main .container-news {
+		grid-template-columns: 60% 40%;
+		grid-template-areas: "news stadistics";
+	}
+
+	body footer {
+		grid-template-columns: 50% 50%;
+		grid-template-areas: "title-f1 redes";
+	}
+}

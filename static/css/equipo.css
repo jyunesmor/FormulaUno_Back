@@ -1,0 +1,293 @@
+a:hover,
+img:hover {
+	cursor: pointer;
+}
+
+body {
+	background-color: lightgray;
+}
+
+body main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+body main .teams-card {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 25px;
+}
+
+body main .teams-card .team-card {
+	margin: auto;
+	width: 85%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 10px;
+}
+
+body main .teams-card .team-card a {
+	width: 200px;
+	margin: auto;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 25px;
+}
+
+body main .teams-card .team-card img {
+	width: 190px;
+	height: 150px;
+	padding: 15px;
+}
+
+body main .teams {
+	width: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body main .teams .team {
+	width: 95%;
+	padding: 50px;
+}
+
+body main .teams .team .cont-team {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 95%;
+	padding: 25px;
+	row-gap: 45px;
+}
+
+body main .teams .team .cont-team a {
+	margin: auto;
+	text-decoration: none;
+	color: red;
+	filter: drop-shadow(2px 2px 3px black);
+}
+
+body main .teams .team .cont-team .equipo-team {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+}
+
+body main .teams .team .cont-team .equipo-team img {
+	width: 380px;
+	filter: drop-shadow(4px 4px 2px black);
+	margin: auto;
+	padding: 25px;
+}
+
+body main .teams .team .cont-team .pilotos-team {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+
+body main .teams .team .cont-team .pilotos-team img {
+	width: 175px;
+	filter: drop-shadow(3px 3px 5px black);
+}
+
+body main .teams .team .cont-team .pilotos-team h5 {
+	text-align: center;
+	padding: 25px;
+}
+
+.sombra_ferrari {
+	filter: drop-shadow(3px 3px 8px #dc0000);
+}
+
+.sombra_redbull {
+	filter: drop-shadow(3px 3px 8px #0600ef);
+}
+
+.sombra_astonmartin {
+	filter: drop-shadow(3px 3px 8px #358c75);
+}
+
+.sombra_hass {
+	filter: drop-shadow(3px 3px 8px black);
+}
+
+.sombra_alpine {
+	filter: drop-shadow(3px 3px 8px #0090ff);
+}
+
+.sombra_mclaren {
+	filter: drop-shadow(3px 3px 8px #ff8000);
+}
+
+.sombra_stake {
+	filter: drop-shadow(3px 3px 8px #83f52c);
+}
+
+.sombra_mercedes {
+	filter: drop-shadow(3px 3px 8px #00d2be);
+}
+
+.sombra_williams {
+	filter: drop-shadow(3px 3px 8px #005aff);
+}
+
+/* modal */
+
+body .modal {
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 1;
+}
+
+body .modal .modal_content {
+	width: 75%;
+	height: auto;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(../img/Bandera_a_Cuadro.jpg), no-repeat, center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 45px;
+}
+
+body .modal .modal_content .datos {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+body .modal .modal_content .datos h3 {
+	font-size: 1.2rem;
+	padding: 45px;
+	text-align: center;
+}
+
+body .modal .datos .datos_pilotos {
+	font-size: 0.9rem;
+	padding: 10px;
+	text-align: center;
+}
+
+body .modal .modal_content .datos .context_text_teams {
+	display: flex;
+	flex-direction: column;
+	row-gap: 35px;
+}
+
+body .modal .modal_content .datos,
+body .modal .modal_content .datos h3 {
+	color: #b9935a;
+	text-shadow: 3px 3px 2px black;
+}
+
+body .modal .modal_content .datos .context_text_teams .datos_scuderia span {
+	width: 65%;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	font-size: 0.8rem;
+}
+
+body .modal .modal_content .datos .context_text_teams .hist_scuderia p {
+	width: 65%;
+	font-size: 0.8rem;
+	display: flex;
+	margin: auto;
+}
+
+body .modal .modal_content .btn_modal button {
+	width: 70%;
+	padding: 45px;
+	font-size: 1.1rem;
+	background: none;
+	color: red;
+	border: none;
+	font-weight: bold;
+}
+
+body #volver img {
+	position: fixed;
+	bottom: 180px;
+	right: 60px;
+	width: 30px;
+	border-radius: 50%;
+	display: none;
+}
+
+/* Responsividad */
+
+@media (300px <= width < 829px) {
+	body main .teams-card .team-card img {
+		width: 150px;
+		height: 100px;
+	}
+
+	body main .teams .team .cont-team .equipo-team img {
+		width: 260px;
+	}
+
+	body main .teams .team .cont-team .pilotos-team img {
+		width: 95px;
+	}
+
+	body #volver img {
+		right: 25px;
+		width: 60px;
+	}
+}
+
+@media (830px <= width < 915px) {
+}
+
+@media (916px <= width < 1023px) {
+	body main .teams .team .cont-team .pilotos-team {
+		flex-direction: row;
+		column-gap: 35px;
+	}
+}
+
+@media (1024px <= width < 1440px) {
+	body #volver img {
+		width: 9%;
+	}
+
+	body main .teams .team .cont-team .equipo-team img {
+		width: 600px;
+	}
+	body main .teams .team .cont-team .pilotos-team {
+		flex-direction: row;
+		column-gap: 200px;
+	}
+
+	body .modal .modal_content .datos .context_text_teams {
+		flex-direction: row;
+		column-gap: 35px;
+	}
+
+	body .modal .modal_content .datos .context_text_teams .datos_scuderia {
+		width: 40%;
+	}
+	body .modal .modal_content .datos .context_text_teams .hist_scuderia {
+		width: 60%;
+	}
+}
