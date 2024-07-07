@@ -7,6 +7,7 @@ const sexoField = document.querySelectorAll("#input_sexo input[type='radio']");
 const dataField = document.querySelector("#fecha_nacimiento");
 const country_Field = document.querySelector("#pais");
 const emailField = document.querySelector("#email");
+const imagenField = document.querySelector("#imagen");
 
 /** Intrumentos a Utilizar */
 
@@ -150,7 +151,7 @@ form.addEventListener("submit", (e) => {
 		fields.email &&
 		fields.fecha_nacimiento
 	) {
-		agregarUsuario();
+		agregarUsuario(e);
 	} else {
 		Swal.fire({
 			position: "top-end",
@@ -165,18 +166,8 @@ form.addEventListener("submit", (e) => {
 	}
 });
 
-function agregarUsuario() {
-	const formData = new FormData(form);
-	formData.append("nombre", nameField.value);
-	formData.append("apellido", lastNameField.value);
-	formData.append(
-		"sexo",
-		document.querySelector("input[name='sexo']:checked").value
-	);
-	formData.append("fecha_nacimiento", dataField.value);
-	formData.append("pais", country_Field.value);
-	formData.append("email", emailField.value);
-	formData.append("email", emailField.value);
+function agregarUsuario(e) {
+	const formData = new FormData(e.currentTarget);
 
 	fetch("http://localhost:5000/contacto", {
 		method: "POST",
@@ -200,14 +191,5 @@ function agregarUsuario() {
 				showConfirmButton: false,
 				timer: 1500,
 			});
-		})
-		.finally(function () {
-			document.getElementById("nombre").value = "";
-			document.getElementById("apellido").value = "";
-			document.getElementById("sexo").value = "";
-			document.getElementById("fecha_nacimiento").value = "";
-			document.getElementById("pais").value = "";
-			document.getElementById("email").value = "";
-			document.getElementById("imagen").value = "";
 		});
 }

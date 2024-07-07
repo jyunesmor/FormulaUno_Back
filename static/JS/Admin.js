@@ -1,4 +1,5 @@
 const url_usuarios = "http://localhost:5000/";
+const ruta_imagen = "./static/img/UsuarioImages/";
 let codigo = " ";
 
 document.addEventListener("DOMContentLoaded", cargaPagina);
@@ -212,6 +213,8 @@ function obtenerUsuario(codigo) {
 			pais = user.pais;
 			email = user.email;
 			fechaNacimiento = user.fechaNacimiento;
+			imagen = user.imagen;
+			console.log(imagen);
 
 			fechaNacimiento = new Date(fechaNacimiento);
 
@@ -231,6 +234,8 @@ function obtenerUsuario(codigo) {
 						(check.checked =
 							check.value == capitalize(user.sexo) ? true : false)
 				);
+			const imagenActual = document.getElementById("imagen-actual");
+			imagenActual.src = "/static/img/UsuarioImages/" + imagen;
 
 			btn_modificar.value = `Modificar datos de : ${capitalize(
 				apellido

@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import mysql.connector
-
+# Si es necesario, pip install Werkzeug 
+from werkzeug.utils import secure_filename 
+# No es necesario instalar, es parte del sistema standard de Python 
+import os 
+import time
 
 app = Flask(__name__)
 CORS(app)
@@ -36,6 +40,7 @@ class Usuario:
         sexo VARCHAR(15) NOT NULL,
         fechaNacimiento DATE NOT NULL,
         pais VARCHAR(15) NOT NULL,
+        imagen VARCHAR(50) NOT NULL,
         email VARCHAR(30) NOT NULL)''')
         self.conn.commit()
 
@@ -43,10 +48,10 @@ class Usuario:
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
 
-  def agregar_Usuario(self,nombre,apellido,sexo,fechaNacimiento,pais,email):
+  def agregar_Usuario(self,nombre,apellido,sexo,fechaNacimiento,pais,imagen,email):
 
-    sql ="INSERT INTO usuarios (nombre,apellido,sexo,fechaNacimiento,pais,email) VALUES (%s,%s,%s,%s,%s,%s)"
-    valores = (nombre,apellido,sexo,fechaNacimiento,pais,email)
+    sql ="INSERT INTO usuarios (nombre,apellido,sexo,fechaNacimiento,pais,imagen,email) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+    valores = (nombre,apellido,sexo,fechaNacimiento,pais,imagen,email)
     self.cursor.execute(sql,valores)
     self.conn.commit()
     return self.cursor.lastrowid
@@ -74,6 +79,8 @@ class Usuario:
     return self.cursor.fetchall()
 
 user = Usuario(host='localhost', user='root', password='', database='ddbb_usuarios', port= 3307)
+
+ruta_destino = './static/img/UsuarioImages/'
 
 
 @app.route("/", methods=['GET'])
@@ -104,8 +111,25 @@ def administrador():
 def agregar_Usuario():
 
   if request.method == 'POST':
+    
+    imagen= request.files['imagen'];
+    nombre_imagen= ''
+    
+    nombre_imagen = secure_filename(imagen.filename)
+    nombre_base, extension = os.path.splitext(nombre_imagen) 
+    nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
 
-    user.agregar_Usuario(request.form['nombre'].lower(),request.form['apellido'].lower(),request.form['sexo'].lower(),request.form['fecha_nacimiento'],request.form['pais'].lower(),request.form['email'].lower())
+    fname = request.form['nombre'].lower()
+    lname = request.form['apellido'].lower()
+    sex = request.form['sexo'].lower()
+    birthday = request.form['fecha_nacimiento'].lower()
+    country = request.form['pais'].lower()
+    email = request.form['email'].lower()
+    
+    user.agregar_Usuario(fname,lname,sex,birthday,country,nombre_imagen,email)
+    
+    imagen.save(os.path.join(ruta_destino, nombre_imagen))
+    
   return render_template("contacto.html")
 
 @app.route("/contacto/<int:codigo>", methods=["DELETE"])
