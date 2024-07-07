@@ -1,4 +1,4 @@
-![F1](img/F1-Logo-2018.png)
+![F1](static/img/F1-Logo-2018.png)
 <br />
 
 ![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat&logo=html5)
@@ -51,7 +51,7 @@ Para un seguimiento INTEGRAL del desarrolo, disponibilizamos la documentacion de
 
 El sitio web cuenta con 6 páginas desarrolladas con HTML (Index o página de inicio, Equipo, Calendario, Estadísticas, Galeria, Contacto)
 
-![Pagina Principal](assets/img_maquetado.jpg)
+![Pagina Principal](static/img_maquetado.jpg)
 <br />
 > _Estructura del maquetado usado en el desarrollo del sitio._
 
@@ -72,19 +72,19 @@ sitio web sobre F1.
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/principal1.jpg) |
+| ![Imagen 3](static/principal1.jpg) |
 | Parte superior de página de inicio |
 
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/principal3.jpg) |
+| ![Imagen 3](static/principal3.jpg) |
 | Parte inferior de página de inicio |
 
 
 |                       |                       |
 |-----------------------|-----------------------|
-| <img src="assets/responsive1.jpg" alt="Imagen 3" style="width:100%; height:100;"> | <img src="assets/responsive3.jpg" alt="Imagen 3" style="width:100%; height:100;"> |
+| <img src="static/responsive1.jpg" alt="Imagen 3" style="width:100%; height:100;"> | <img src="static/responsive3.jpg" alt="Imagen 3" style="width:100%; height:100;"> |
 | Diseño responsive para celulares |
 
 
@@ -103,18 +103,18 @@ En caso de querer regresar al inicio de la pagina donde estan los equipos para e
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/equipos1.jpg) |
+| ![Imagen 3](static/equipos1.jpg) |
 |Parte superior de página equipos, nos muestra las escuderías en competencia y las distintas solapas a las que podemos acceder |
 
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/equipos2.jpg) |
+| ![Imagen 3](static/equipos2.jpg) |
 | Parte media de la página equipos, podemos ver el modelo de coche utilizado en la actual temporada asi como los pilotos titulares, también se observa el botón de regreso al 'índice' de escuderías |
 
 |                       |                       |
 |-----------------------|-----------------------|
-| <img src="assets/cronograma1.jpg" alt="Imagen 3" style="width:100%; height:auto;"> | <img src="assets/cronograma2.jpg" alt="Imagen 3" style="width:100%; height:auto;"> |
+| <img src="static/cronograma1.jpg" alt="Imagen 3" style="width:100%; height:auto;"> | <img src="assets/cronograma2.jpg" alt="Imagen 3" style="width:100%; height:auto;"> |
 | Modal de piloto donde se observa una reseña del mismo | Modal del coche donde se describe brevemente las características de la escudería y una breve reseña histórica |
 
 
@@ -134,13 +134,13 @@ También esta disponible la posibilidad de desplegar mas información seleccinan
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/cronograma3.jpg) |
+| ![Imagen 3](static/cronograma3.jpg) |
 | Parte superior-media de la página cronograma, donde observamos algunos de los circuitos de la temporada, tanto un croquis de su disposición como fecha y lugar|
 
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/cronograma4.jpg) |
+| ![Imagen 3](static/cronograma4.jpg) |
 | Modal de circuito, se describe brevemente las caracteristicas del circuito y alguna información preliminar |
 
   
@@ -166,7 +166,7 @@ En esta sección encontramos diferentes tomas de la temporada, en los distintos 
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/img_galeria.jpg) |
+| ![Imagen 3](static/img_galeria.jpg) |
 | Parte superior de la página galeria |
 
   
@@ -182,13 +182,13 @@ Esta sección fue creada para que el usuario tenga la posibilidad de realizar un
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/formulario_contacto1.jpg) |
+| ![Imagen 3](static/formulario_contacto1.jpg) |
 | Parte superior de la página contacto, se describe brevemente el formulario de contacto |
 
 
 |                       |
 |-----------------------|
-| ![Imagen 3](assets/formulario_contacto2.jpg) |
+| ![Imagen 3](static/formulario_contacto2.jpg) |
 | Parte media-inferior de página contacto, donde se observa la disposición y campos del formulario a completar y el botón de envío |
 
   
@@ -229,7 +229,7 @@ Podemos ver el despliegue de nuestro sitio [aquí](https://marco11235813.github.
   
 |      |      |      |      |
 | :--: | :--: | :--: | :--: |
-| <img src="assets/Foto_perfil_Marco.jpg" width="200" height="200"><br>**Marco**<br>[<img src="assets/linkedin.png" style="width:20px;">](https://www.linkedin.com/in/marco-antonio-caro-22459711b) [<img src="assets/github.png" style="width:20px;">](https://github.com/marco11235813) | <img src="assets/Foto_perfil_Juan.jpg" width="200" height="200"><br>**Juan**<br>[<img src="assets/linkedin.png" style="width:20px;">](http://www.linkedin.com/in/juan-manuel-yunes-mor) [<img src="assets/github.png" style="width:20px;">](https://github.com/jyunesmor) | <img src="assets/Foto_perfil_Leandro.jpg" width="200" height="200"><br>**Leandro**<br>[<img src="assets/linkedin.png" style="width:20px;">](http://www.linkedin.com/in/leandro-mambelli-79834a6b) [<img src="assets/github.png" style="width:20px;">](LINK_GITHUB_INTEGRANTE3) | <img src="assets/Foto_perfil_Lourdes.jpg" width="200" height="200"><br>**Lourdes**<br>[<img src="assets/linkedin.png" style="width:20px;">](https://www.linkedin.com/in/lourdes-pomponio-68ba6a245) [<img src="assets/github.png" style="width:20px;">](LINK_GITHUB_IN)
+| <img src="assets/Foto_perfil_Marco.jpg" width="200" height="200"><br>**Marco**<br>[<img src="static/linkedin.png" style="width:20px;">](https://www.linkedin.com/in/marco-antonio-caro-22459711b) [<img src="static/github.png" style="width:20px;">](https://github.com/marco11235813) | <img src="static/Foto_perfil_Juan.jpg" width="200" height="200"><br>**Juan**<br>[<img src="static/linkedin.png" style="width:20px;">](http://www.linkedin.com/in/juan-manuel-yunes-mor) [<img src="static/github.png" style="width:20px;">](https://github.com/jyunesmor) | <img src="static/Foto_perfil_Leandro.jpg" width="200" height="200"><br>**Leandro**<br>[<img src="static/linkedin.png" style="width:20px;">](http://www.linkedin.com/in/leandro-mambelli-79834a6b) [<img src="assets/github.png" style="width:20px;">](LINK_GITHUB_INTEGRANTE3) | <img src="static/Foto_perfil_Lourdes.jpg" width="200" height="200"><br>**Lourdes**<br>[<img src="static/linkedin.png" style="width:20px;">](https://www.linkedin.com/in/lourdes-pomponio-68ba6a245) [<img src="static/github.png" style="width:20px;">](LINK_GITHUB_IN)
   
 </div>
 
