@@ -118,9 +118,13 @@ body main .container form .input_group .inputGroupLeft {
 	padding: 15px;
 }
 
-body main .container form .input_group .inputGroupLeft .input #imagen-actual {
+body main .container form .input_group .inputGroupLeft .input #imagen {
 	width: 200px;
 	margin: auto;
+}
+
+body main .container form .input_group .inputGroupLeft #nuevaImagen {
+	display: none;
 }
 
 body main .container form .input_group .inputGroupRigth {

@@ -56,10 +56,10 @@ class Usuario:
     self.conn.commit()
     return self.cursor.lastrowid
 
-  def modificar_usuario(self, codigo, nvo_nombre, nvo_apellido, nvo_sexo, nvo_fechaNacimiento, nvo_pais, nvo_email):
+  def modificar_usuario(self, codigo, nvo_nombre, nvo_apellido, nvo_sexo, nvo_fechaNacimiento, nvo_pais,nva_imagen,nvo_email):
 
-        sql = "UPDATE usuarios SET nombre = %s , apellido = %s , sexo = %s , fechaNacimiento = %s , pais = %s , email = %s WHERE codigo = %s"
-        valores = (nvo_nombre,nvo_apellido,nvo_sexo,nvo_fechaNacimiento,nvo_pais,nvo_email, codigo)
+        sql = "UPDATE usuarios SET nombre = %s , apellido = %s , sexo = %s , fechaNacimiento = %s , pais = %s, imagen = %s , email = %s WHERE codigo = %s"
+        valores = (nvo_nombre,nvo_apellido,nvo_sexo,nvo_fechaNacimiento,nvo_pais,nva_imagen,nvo_email,codigo)
         self.cursor.execute(sql,valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -143,10 +143,34 @@ def eliminar_usuario(codigo):
 @app.route("/contacto/<int:codigo>", methods=["PUT"])
 def modificar_usuario(codigo):
 
-  if request.method == 'PUT':
-    user.modificar_usuario(codigo,request.form.get('nombre'),request.form.get('apellido'),request.form.get('sexo'),request.form.get('fecha_nacimiento'),request.form.get('pais'),request.form.get('email'));
+    nombre_imagen= '' 
+    imagen= '' 
+    if 'imagen' not in request.files:
+      print('no hay archivo')
+    # Verifica si se proporcionó una nueva imagen
+    else: 
+      imagen = request.files['imagen']
+        
+        # Procesamiento de la imagen
+    nombre_imagen = secure_filename(imagen.filename) 
+    nombre_base, extension = os.path.splitext(nombre_imagen) 
+    nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
+      
+        # Guardar la imagen en el servidor
+    imagen.save(os.path.join(ruta_destino, nombre_imagen)) 
 
-  return render_template("administrador.html")
+
+    fname = request.form['nombre'].lower()
+    lname = request.form['apellido'].lower()
+    sex = request.form['sexo'].lower()
+    birthday = request.form['fecha_nacimiento'].lower()
+    country = request.form['pais'].lower()
+    email = request.form['email'].lower()
+    
+  
+    user.modificar_usuario(codigo,fname,lname,sex,birthday,country,nombre_imagen,email)
+  
+    return render_template("administrador.html")
 
 
 @app.route("/usuarios", methods=['GET'])

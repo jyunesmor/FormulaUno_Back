@@ -95,14 +95,16 @@
 						</div>
 					</div>
 
-					<form name="contacto">
+					<form id="formModificar" enctype="multipart/form-data">
 						<div class="input_group">
 							<div class="inputGroupLeft">
 								<!-- Imagen  -->
 								<div class="input">
-									<label for="imagenModificar">Foto de Perfil:</label>
-									<img id="imagen-actual" name="imagen" />
+									<img id="imagen" />
 								</div>
+								<!-- Input para nueva imagen -->
+								<input type="file" id="nuevaImagen" name="imagen" />
+								<label for="nuevaImagen">Actualizar Imagen</label>
 								<!-- Nombre  -->
 								<div class="input">
 									<label for="nombre">Nombre:</label>
@@ -152,7 +154,9 @@
 								</div>
 								<!-- Fecha Nacimiento  -->
 								<div class="input">
-									<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+									<label for="fecha_nacimientoModificar"
+										>Fecha de Nacimiento:</label
+									>
 									<input
 										type="date"
 										id="fecha_nacimientoModificar"
@@ -162,7 +166,7 @@
 								</div>
 								<!-- Nvo Pais  -->
 								<div class="input">
-									<label for="pais">Seleccione nuevo Pais:</label>
+									<label for="paisModificar">Seleccione nuevo Pais:</label>
 									<select name="pais" id="paisModificar" class="select_input">
 										<option value="Argentina">Argentina</option>
 										<option value="Bolivia">Bolivia</option>

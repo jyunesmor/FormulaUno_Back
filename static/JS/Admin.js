@@ -1,6 +1,5 @@
 const url_usuarios = "http://localhost:5000/";
 const ruta_imagen = "./static/img/UsuarioImages/";
-let codigo = " ";
 
 document.addEventListener("DOMContentLoaded", cargaPagina);
 
@@ -38,7 +37,7 @@ function cargaPagina() {
  */
 const btn_modificar = document.querySelector("#b1");
 
-const form = document.getElementById("form_admin");
+const form = document.getElementById("formModificar");
 
 form.addEventListener("submit", modificarUsuario);
 
@@ -99,63 +98,77 @@ function cargaUsuarios() {
 		});
 }
 
+document
+	.getElementById("nuevaImagen")
+	.addEventListener("change", seleccionarImagen);
+
+let imagenSeleccionada = null;
+
+// Se activa cuando el usuario selecciona una imagen para cargar.
+function seleccionarImagen(e) {
+	const file = e.target.files[0];
+	const imagenActual = document.getElementById("imagen");
+
+	imagenActual.src = ruta_imagen + imagen;
+	if (file) {
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			imagenActual.src = e.target.result;
+		};
+		reader.readAsDataURL(e.target.files[0]);
+		imagenSeleccionada = e.target.files[0];
+	} else {
+		imagenActual.src = ruta_imagen + imagen;
+	}
+}
+
 function modificarUsuario(e) {
 	e.preventDefault();
-	Swal.fire({
-		title: "Estas Seguro de modificarlo?",
-		text: "No hay forma de revertirlo!",
-		icon: "warning",
-		showCancelButton: true,
-		confirmButtonColor: "#3085d6",
-		cancelButtonColor: "#d33",
-		confirmButtonText: "Si, Modificar!",
-	}).then((result) => {
-		if (result.isConfirmed) {
-			const codId = document.getElementById("codigoMod").value;
-			const data = new FormData();
-			data.append("codigo", codId);
-			data.append("nombre", document.getElementById("nombreModificar").value);
-			data.append(
-				"apellido",
-				document.getElementById("apellidoModificar").value
-			);
-			data.append(
-				"sexo",
-				document.querySelector("input[name='sexoModificar']:checked").value
-			);
-			data.append("pais", document.getElementById("paisModificar").value);
-			data.append("email", document.getElementById("emailModificar").value);
-			data.append(
-				"fecha_nacimiento",
-				document.getElementById("fecha_nacimientoModificar").value
-			);
+	const codId = document.getElementById("codigoMod").value;
+	const formData = new FormData();
 
-			fetch(url_usuarios + "contacto/" + codId, {
-				method: "PUT",
-				body: data,
-			})
-				.then((res) => {
-					Swal.fire({
-						position: "top-end",
-						icon: "success",
-						title: "Se Modifico el usuario correctamente",
-						showConfirmButton: false,
-						timer: 1500,
-					});
-				})
-				.catch(function (error) {
-					Swal.fire({
-						position: "top-end",
-						icon: "error",
-						title: "No pudimos Modificar el usuario, intentalo nuevamente",
-						showConfirmButton: false,
-						timer: 1500,
-					});
-				});
-		}
-		location.href = location.href;
-		cargaUsuarios();
-	});
+	formData.append("codigo", codId);
+	formData.append("nombre", document.getElementById("nombreModificar").value);
+	formData.append(
+		"apellido",
+		document.getElementById("apellidoModificar").value
+	);
+	formData.append(
+		"sexo",
+		document.querySelector("input[name='sexoModificar']:checked").value
+	);
+	formData.append(
+		"fecha_nacimiento",
+		document.getElementById("fecha_nacimientoModificar").value
+	);
+	formData.append("pais", document.getElementById("paisModificar").value);
+	formData.append("email", document.getElementById("emailModificar").value);
+	formData.append("imagen", imagenSeleccionada, imagenSeleccionada.name);
+
+	fetch("http://localhost:5000/contacto/" + codId, {
+		method: "PUT",
+		body: formData,
+	})
+		.then((res) => {
+			Swal.fire({
+				position: "top-end",
+				icon: "success",
+				title: "Se Modifico el usuario correctamente",
+				showConfirmButton: false,
+				timer: 1500,
+			});
+		})
+		.catch(function (error) {
+			Swal.fire({
+				position: "top-end",
+				icon: "error",
+				title: "No pudimos Modificar el usuario, intentalo nuevamente",
+				showConfirmButton: false,
+				timer: 1500,
+			});
+		});
+	location.href = location.href;
+	cargaUsuarios();
 }
 
 function eliminarUsuario(codigo) {
@@ -214,11 +227,7 @@ function obtenerUsuario(codigo) {
 			email = user.email;
 			fechaNacimiento = user.fechaNacimiento;
 			imagen = user.imagen;
-			console.log(imagen);
-
 			fechaNacimiento = new Date(fechaNacimiento);
-
-			/* Obtener checkboc seleccionado */
 
 			document.getElementById("codigoMod").value = codigo;
 			document.getElementById("nombreModificar").value = capitalize(nombre);
@@ -234,8 +243,8 @@ function obtenerUsuario(codigo) {
 						(check.checked =
 							check.value == capitalize(user.sexo) ? true : false)
 				);
-			const imagenActual = document.getElementById("imagen-actual");
-			imagenActual.src = "/static/img/UsuarioImages/" + imagen;
+			const imagenVieja = document.getElementById("imagen");
+			imagenVieja.src = ruta_imagen + imagen;
 
 			btn_modificar.value = `Modificar datos de : ${capitalize(
 				apellido
